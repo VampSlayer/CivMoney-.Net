@@ -48,6 +48,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CivMoneyContext.cs" />
+    <Compile Include="CivMoneyContextFactory.cs" />
+    <Compile Include="Contracts\ICivMoneyContext.cs" />
+    <Compile Include="Contracts\ICivMoneyContextFactory.cs" />
     <Compile Include="Models\Transaction.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

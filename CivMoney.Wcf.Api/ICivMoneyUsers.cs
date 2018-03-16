@@ -10,7 +10,7 @@ namespace CivMoney.Wcf.Api
         [WebInvoke(Method = "GET",
             ResponseFormat = WebMessageFormat.Json,
             BodyStyle = WebMessageBodyStyle.Wrapped,
-            UriTemplate = "json/userId={id}")]
+            UriTemplate = "json/GetUserName?userId={id}")]
         string GetUserName(string id);
 
         [OperationContract]

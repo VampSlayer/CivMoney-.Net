@@ -1,14 +1,18 @@
 ﻿using CivMoney.DataBaseLayer;
+using CivMoney.DataBaseLayer.Contracts;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CivMoney.AccessAndBusinessLayer.Transactions
 {
     public class CreateTransactions
     {
+        private CivMoneyContext _civMoneyContext;
+
+        public CreateTransactions(ICivMoneyContextFactory civMoneyContextFactory)
+        {
+            _civMoneyContext = civMoneyContextFactory.GetContext();
+        }
+
         public bool AddSingleTransaction(
             decimal amount,
             string description, 
@@ -17,18 +21,15 @@ namespace CivMoney.AccessAndBusinessLayer.Transactions
         {
             try
             {
-                using (var db = new CivMoneyContext())
+                var transaction = new Transaction
                 {
-                    var transaction = new Transaction
-                    {
-                        Amount = amount,
-                        Description = description,
-                        Date = date,
-                        UserId = userId
-                    };
-                    db.Transactions.Add(transaction);
-                    db.SaveChanges();
-                }
+                    Amount = amount,
+                    Description = description,
+                    Date = date,
+                    UserId = userId
+                };
+                _civMoneyContext.Transactions.Add(transaction);
+                _civMoneyContext.SaveChanges();
 
                 return true;
             }
@@ -36,6 +37,16 @@ namespace CivMoney.AccessAndBusinessLayer.Transactions
             {
                 return false;
             }
+        }
+
+        public bool AddMonthlyIncomesAndExpenesForUser(
+            DateTime date, 
+            decimal totalIncomes,
+            decimal totalExpenes,
+            int userId)
+        {
+            //TODO
+            return true;
         }
     }
 }

@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace CivMoney.AccessAndBusinessLayer.Transactions
 {
-    class DeleteTransactions
+    public class DeleteTransactions
     {
+        public bool DeleteTransactionForUser(int transactionId, int userId)
+        {
+            return false;
+        }
     }
 }

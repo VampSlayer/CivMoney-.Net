@@ -52,7 +52,8 @@
     <Compile Include="Transactions\CreateTransactions.cs" />
     <Compile Include="Transactions\DeleteTransactions.cs" />
     <Compile Include="Transactions\GetTransactions.cs" />
-    <Compile Include="Users.cs" />
+    <Compile Include="Transactions\TransactionTotals.cs" />
+    <Compile Include="UsersAccess.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CivMoney.DataBaseLayer\CivMoney.DataBaseLayer.csproj">

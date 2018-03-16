@@ -1,14 +1,15 @@
 ﻿using CivMoney.AccessAndBusinessLayer;
+using CivMoney.DataBaseLayer;
 
 namespace CivMoney.Wcf.Api
 {
     public class CivMoneyUsers : ICivMoneyUsers
     {
-        private Users _usersDataBaseAccess;
+        private UsersAccess _usersDataBaseAccess;
 
         public CivMoneyUsers()
         {
-            _usersDataBaseAccess = new Users();
+            _usersDataBaseAccess = new UsersAccess(new CivMoneyContextFactory());
         }
 
         public string AddUser(string userName, string password, string currency)

@@ -100,6 +100,10 @@
       <Project>{5948975f-81fb-426b-8ada-9baa125e67eb}</Project>
       <Name>CivMoney.AccessAndBusinessLayer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CivMoney.DataBaseLayer\CivMoney.DataBaseLayer.csproj">
+      <Project>{D11ABC2E-4A8E-44EA-A12F-3AB819B91B7C}</Project>
+      <Name>CivMoney.DataBaseLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
