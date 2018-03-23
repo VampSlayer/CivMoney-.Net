@@ -12,8 +12,8 @@ namespace CivMoney.AccessAndBusinessLayer.Transactions
         {
             _civMoneyContext = civMoneyContextFactory.GetContext();
         }
-
-        public bool AddSingleTransaction(
+        
+        public int AddSingleTransaction(
             decimal amount,
             string description, 
             DateTime date,
@@ -28,14 +28,14 @@ namespace CivMoney.AccessAndBusinessLayer.Transactions
                     Date = date,
                     UserId = userId
                 };
-                _civMoneyContext.Transactions.Add(transaction);
+                var transactionAdded = _civMoneyContext.Transactions.Add(transaction);
                 _civMoneyContext.SaveChanges();
 
-                return true;
+                return transactionAdded.Id;
             }
             catch (Exception)
             {
-                return false;
+                return -1;
             }
         }
 

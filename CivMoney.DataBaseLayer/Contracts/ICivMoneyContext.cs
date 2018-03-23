@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CivMoney.DataBaseLayer.Contracts
 {
-    interface ICivMoneyContext
+    public interface ICivMoneyContext
     {
     }
 }

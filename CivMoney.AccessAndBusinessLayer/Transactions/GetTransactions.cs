@@ -3,8 +3,6 @@ using CivMoney.DataBaseLayer.Contracts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CivMoney.AccessAndBusinessLayer.Transactions
 {
@@ -26,34 +24,52 @@ namespace CivMoney.AccessAndBusinessLayer.Transactions
             return transactionsForDate;
         }
 
-        public List<Transaction> GetIncomesForDateForUser()
+        public List<Transaction> GetIncomesForDateForUser(
+            DateTime date,
+            int userId)
         {
-            //TODO
-            return new List<Transaction>();
+            var incomesForDate = _civMoneyContext.Transactions.Where(transactions => transactions.Date == date && transactions.UserId == userId && transactions.Amount > 0m).ToList();
+
+            return incomesForDate;
         }
 
-        public List<Transaction> GetExpenesForDateForUser()
+        public List<Transaction> GetExpenesForDateForUser(
+            DateTime date,
+            int userId)
         {
-            //TODO
-            return new List<Transaction>();
+            var expensesForDate = _civMoneyContext.Transactions.Where(transactions => transactions.Date == date && transactions.UserId == userId && transactions.Amount < 0m).ToList();
+
+            return expensesForDate;
         }
 
-        public List<Transaction> GetTransactionsForDateRangeForUser()
+        public List<Transaction> GetTransactionsForDateRangeForUser(
+            DateTime firstDate,
+            DateTime secondDate,
+            int userId)
         {
-            //TODO
-            return new List<Transaction>();
+            var transactionsForDate = _civMoneyContext.Transactions.Where(transactions => transactions.Date > firstDate && transactions.Date < secondDate && transactions.UserId == userId).ToList();
+
+            return transactionsForDate;
         }
 
-        public List<Transaction> GetIncomesForDateRangeForUser()
+        public List<Transaction> GetIncomesForDateRangeForUser(
+            DateTime firstDate,
+            DateTime secondDate,
+            int userId)
         {
-            //TODO
-            return new List<Transaction>();
+            var incomesForDate = _civMoneyContext.Transactions.Where(transactions => transactions.Date > firstDate && transactions.Date < secondDate && transactions.UserId == userId && transactions.Amount > 0m).ToList();
+
+            return incomesForDate;
         }
 
-        public List<Transaction> GetExpensesForDateRangeForUser()
+        public List<Transaction> GetExpensesForDateRangeForUser(
+            DateTime firstDate,
+            DateTime secondDate,
+            int userId)
         {
-            //TODO
-            return new List<Transaction>();
+            var expensesForDate = _civMoneyContext.Transactions.Where(transactions => transactions.Date > firstDate && transactions.Date < secondDate && transactions.UserId == userId && transactions.Amount < 0m).ToList();
+
+            return expensesForDate;
         }
     }
 }

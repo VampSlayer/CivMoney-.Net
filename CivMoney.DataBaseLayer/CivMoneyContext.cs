@@ -5,7 +5,7 @@ namespace CivMoney.DataBaseLayer
 {
     public class CivMoneyContext : DbContext, ICivMoneyContext
     {
-        public DbSet<User> Users { get; set; }
-        public DbSet<Transaction> Transactions { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<Transaction> Transactions { get; set; }
     }
 }

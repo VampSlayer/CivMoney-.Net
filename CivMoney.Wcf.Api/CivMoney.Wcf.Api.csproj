@@ -79,8 +79,8 @@
     <Compile Include="CivMoneyUsers.svc.cs">
       <DependentUpon>CivMoneyUsers.svc</DependentUpon>
     </Compile>
-    <Compile Include="ICivMoneyTransactions.cs" />
-    <Compile Include="ICivMoneyUsers.cs" />
+    <Compile Include="Contracts\ICivMoneyTransactions.cs" />
+    <Compile Include="Contracts\ICivMoneyUsers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
