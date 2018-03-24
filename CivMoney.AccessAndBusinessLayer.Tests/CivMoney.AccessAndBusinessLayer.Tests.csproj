@@ -76,7 +76,7 @@
   <ItemGroup>
     <Compile Include="TestHelpers\DataBaseMockingHelpers.cs" />
     <Compile Include="Transactions\CreateTransactionsTests.cs" />
-    <Compile Include="UsersTests.cs" />
+    <Compile Include="UsersAccessTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

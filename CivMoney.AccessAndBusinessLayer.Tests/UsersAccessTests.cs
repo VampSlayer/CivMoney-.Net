@@ -37,13 +37,14 @@ namespace CivMoney.AccessAndBusinessLayer.Tests
         }
 
         [TestMethod]
-        public void AddUser_CallsAddOnMockedDbSetUserWithUserNameUser0_TimesOnce()
+        public void AddUser_CallsAddOnMockedDbSetUserWithUserNameUser0_TimesOnce_AndReturnsId0()
         {
             // act
-            var Id = _usersAccessService.AddUser("User0", "password", "CHF");
+            var userId = _usersAccessService.AddUser("User0", "password", "CHF");
 
             // assert
             _mockDbSetUser.Verify(x => x.Add(It.Is<User>(user => user.UserName == "User0")), Times.Once);
+            Assert.AreEqual(0, userId);
         }
 
         [TestMethod]

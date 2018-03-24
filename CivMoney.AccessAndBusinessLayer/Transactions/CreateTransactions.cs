@@ -19,24 +19,17 @@ namespace CivMoney.AccessAndBusinessLayer.Transactions
             DateTime date,
             int userId)
         {
-            try
+            var transaction = new Transaction
             {
-                var transaction = new Transaction
-                {
-                    Amount = amount,
-                    Description = description,
-                    Date = date,
-                    UserId = userId
-                };
-                var transactionAdded = _civMoneyContext.Transactions.Add(transaction);
-                _civMoneyContext.SaveChanges();
+                Amount = amount,
+                Description = description,
+                Date = date,
+                UserId = userId
+            };
+            var transactionAdded = _civMoneyContext.Transactions.Add(transaction);
+            _civMoneyContext.SaveChanges();
 
-                return transactionAdded.Id;
-            }
-            catch (Exception)
-            {
-                return -1;
-            }
+            return transactionAdded.Id;
         }
 
         public bool AddMonthlyIncomesAndExpenesForUser(
@@ -45,8 +38,23 @@ namespace CivMoney.AccessAndBusinessLayer.Transactions
             decimal totalExpenes,
             int userId)
         {
-            //TODO
-            return true;
+            try
+            {
+                var numberOfDaysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
+
+                for (int i = 1; i < numberOfDaysInMonth + 1; i++)
+                {
+                    AddSingleTransaction(totalIncomes / numberOfDaysInMonth, "Monthly Incomes", new DateTime(date.Year, date.Month, i), userId);
+                    AddSingleTransaction(-totalExpenes / numberOfDaysInMonth, "Monthly Expenses", new DateTime(date.Year, date.Month, i), userId);
+                }
+
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
         }
     }
 }

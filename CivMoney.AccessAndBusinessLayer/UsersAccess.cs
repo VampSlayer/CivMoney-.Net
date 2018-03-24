@@ -28,7 +28,7 @@ namespace CivMoney.AccessAndBusinessLayer
             _civMoneyContext.Users.Add(user);
             _civMoneyContext.SaveChanges();
 
-            var userId = _civMoneyContext.Users.Where(users => users.UserName == userName).Single().Id;
+            var userId = _civMoneyContext.Users.Where(users => users.UserName == userName).SingleOrDefault().Id;
 
             return userId;
         }
