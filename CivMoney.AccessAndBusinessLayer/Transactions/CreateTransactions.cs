@@ -52,7 +52,6 @@ namespace CivMoney.AccessAndBusinessLayer.Transactions
             }
             catch (Exception)
             {
-
                 return false;
             }
         }

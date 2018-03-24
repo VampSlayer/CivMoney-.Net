@@ -1,4 +1,5 @@
-﻿using CivMoney.DataBaseLayer;
+﻿using CivMoney.AccessAndBusinessLayer.Contracts.Transactions;
+using CivMoney.DataBaseLayer;
 using CivMoney.DataBaseLayer.Contracts;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Linq;
 
 namespace CivMoney.AccessAndBusinessLayer.Transactions
 {
-    public class TransactionTotals
+    public class TransactionTotals : ITransactionsTotalsService
     {
         private CivMoneyContext _civMoneyContext;
 

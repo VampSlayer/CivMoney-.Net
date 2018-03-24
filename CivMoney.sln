@@ -9,7 +9,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CivMoney.AccessAndBusinessL
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CivMoney.AccessAndBusinessLayer.Tests", "CivMoney.AccessAndBusinessLayer.Tests\CivMoney.AccessAndBusinessLayer.Tests.csproj", "{17DEBD32-47D5-4625-BC01-E872C411FCA8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CivMoney.Web.Api", "CivMoney.Web.Api\CivMoney.Web.Api.csproj", "{1E4044BB-6923-4625-9665-4E3510C0344D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CivMoney.Web.Api", "CivMoney.Web.Api\CivMoney.Web.Api.csproj", "{9A630507-775F-478F-BBF0-07258157E690}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,10 @@ Global
 		{17DEBD32-47D5-4625-BC01-E872C411FCA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{17DEBD32-47D5-4625-BC01-E872C411FCA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{17DEBD32-47D5-4625-BC01-E872C411FCA8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1E4044BB-6923-4625-9665-4E3510C0344D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1E4044BB-6923-4625-9665-4E3510C0344D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1E4044BB-6923-4625-9665-4E3510C0344D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1E4044BB-6923-4625-9665-4E3510C0344D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A630507-775F-478F-BBF0-07258157E690}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A630507-775F-478F-BBF0-07258157E690}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A630507-775F-478F-BBF0-07258157E690}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A630507-775F-478F-BBF0-07258157E690}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

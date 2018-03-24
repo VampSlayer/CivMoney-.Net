@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevOne.Security.Cryptography.BCrypt;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,15 +9,12 @@ namespace CivMoney.AccessAndBusinessLayer
 {
     public class Authentication
     {
-        public bool RegisterUser()
+        public bool LoginUser(string userName, string password)
         {
             //TODO
-            return true;
-        }
+            var passwordHash = "hash";
 
-        public bool LoginUser()
-        {
-            //TODO
+            BCryptHelper.CheckPassword(password, passwordHash);
             return true;
         }
 

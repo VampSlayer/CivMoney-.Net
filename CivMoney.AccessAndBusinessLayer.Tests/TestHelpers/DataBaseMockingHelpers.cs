@@ -4,7 +4,6 @@ using Moq;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
 
 namespace CivMoney.AccessAndBusinessLayer.Tests.TestHelpers
 {
@@ -14,7 +13,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.TestHelpers
         {
             var seededUsers = new List<User>
             {
-                new User { Id = 0, Currency = "CHF", PasswordHash = "password", Salt = "salt", UserName = "User1" }
+                new User { Id = 0, Currency = "CHF", PasswordHash = "password", UserName = "User1" }
             };
 
             var usersMockSet = new Mock<DbSet<User>>().SetupData(seededUsers);
@@ -26,7 +25,10 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.TestHelpers
         {
             var seededTransactions = new List<Transaction>()
             {
-                new Transaction { Id = 0, Amount = 1.0m, Description = "TEST", Date = new DateTime(2000, 1,1), UserId =0 }
+                new Transaction { Id = 0, Amount = 1.0m, Description = "First Income", Date = new DateTime(2000, 1, 1), UserId = 0 },
+                new Transaction { Id = 0, Amount = -1.0m, Description = "First Expense", Date = new DateTime(2000, 1, 1), UserId = 0 },
+                new Transaction { Id = 0, Amount = 1.0m, Description = "Second Income", Date = new DateTime(2000, 12, 1), UserId = 0 },
+                new Transaction { Id = 0, Amount = -1.0m, Description = "Second Expense", Date = new DateTime(2000, 12, 1), UserId = 0 }
             };
 
             var transactionsMockSet = new Mock<DbSet<Transaction>>().SetupData(seededTransactions);

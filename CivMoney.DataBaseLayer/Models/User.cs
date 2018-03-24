@@ -9,7 +9,6 @@ namespace CivMoney.DataBaseLayer
         public string UserName { get; set; }
         public string Currency { get; set; }
         public string PasswordHash { get; set; }
-        public string Salt { get; set; }
         public DateTime TimeModified { get; set; }
 
         public virtual List<Transaction> Transactions { get; set; }

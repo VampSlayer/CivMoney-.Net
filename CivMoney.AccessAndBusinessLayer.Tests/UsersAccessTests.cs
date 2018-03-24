@@ -46,6 +46,16 @@ namespace CivMoney.AccessAndBusinessLayer.Tests
             _mockDbSetUser.Verify(x => x.Add(It.Is<User>(user => user.UserName == "User0")), Times.Once);
             Assert.AreEqual(0, userId);
         }
+        
+        [TestMethod]
+        public void AddUser_IfUserNameAlreadyExistsInUsersTable_ReturnsMinus1AndAddOnMockDbSetIsNeverCalled()
+        {
+            // act
+            var userId = _usersAccessService.AddUser("User1", "password", "CHF");
+
+            _mockDbSetUser.Verify(x => x.Add(It.Is<User>(user => user.UserName == "User1")), Times.Never);
+            Assert.AreEqual(-1, userId);
+        }
 
         [TestMethod]
         public void GetUserIdFromUserName_ShouldGetUserIdFromSeededUserInMockedDbSet_ReturnsZero()
@@ -65,6 +75,28 @@ namespace CivMoney.AccessAndBusinessLayer.Tests
 
             // assert
             Assert.AreEqual(returnedUserCurrency, "CHF");
+        }
+
+        [TestMethod]
+        public void UpdateUserCurrency_ShouldCallSaveChangesOnMockCivMoneyContext_TimesOnceAndReturnTrue()
+        {
+            // act
+            var isSuccesful = _usersAccessService.UpdateUserCurrency(0, "GBP");
+
+            // assert
+            _mockcivMoneyContext.Verify(m => m.SaveChanges(), Times.Once());
+            Assert.IsTrue(isSuccesful);
+        }
+
+        [TestMethod] 
+        public void UpdateUserCurrency_ShouldUpdateSeededUserCurrencyFromCHF_ToGBPAndReturnTrue()
+        {
+            // act
+            var isSuccesful = _usersAccessService.UpdateUserCurrency(0, "GBP");
+
+            // assert
+            Assert.IsTrue(_mockDbSetUser.Object.FirstAsync().Result.Currency == "GBP");
+            Assert.IsTrue(isSuccesful);
         }
     }
 }

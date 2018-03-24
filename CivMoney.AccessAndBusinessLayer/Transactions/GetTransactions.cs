@@ -47,7 +47,7 @@ namespace CivMoney.AccessAndBusinessLayer.Transactions
             DateTime secondDate,
             int userId)
         {
-            var transactionsForDate = _civMoneyContext.Transactions.Where(transactions => transactions.Date > firstDate && transactions.Date < secondDate && transactions.UserId == userId).ToList();
+            var transactionsForDate = _civMoneyContext.Transactions.Where(transactions => transactions.Date >= firstDate && transactions.Date <= secondDate && transactions.UserId == userId).ToList();
 
             return transactionsForDate;
         }
@@ -57,7 +57,7 @@ namespace CivMoney.AccessAndBusinessLayer.Transactions
             DateTime secondDate,
             int userId)
         {
-            var incomesForDate = _civMoneyContext.Transactions.Where(transactions => transactions.Date > firstDate && transactions.Date < secondDate && transactions.UserId == userId && transactions.Amount > 0m).ToList();
+            var incomesForDate = _civMoneyContext.Transactions.Where(transactions => transactions.Date >= firstDate && transactions.Date <= secondDate && transactions.UserId == userId && transactions.Amount > 0m).ToList();
 
             return incomesForDate;
         }
@@ -67,7 +67,7 @@ namespace CivMoney.AccessAndBusinessLayer.Transactions
             DateTime secondDate,
             int userId)
         {
-            var expensesForDate = _civMoneyContext.Transactions.Where(transactions => transactions.Date > firstDate && transactions.Date < secondDate && transactions.UserId == userId && transactions.Amount < 0m).ToList();
+            var expensesForDate = _civMoneyContext.Transactions.Where(transactions => transactions.Date >= firstDate && transactions.Date <= secondDate && transactions.UserId == userId && transactions.Amount < 0m).ToList();
 
             return expensesForDate;
         }

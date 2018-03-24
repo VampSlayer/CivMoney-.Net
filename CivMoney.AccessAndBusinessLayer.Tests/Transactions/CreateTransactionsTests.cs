@@ -63,7 +63,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Transactions
 
             // assert
             _mockDbSetTransaction.Verify(x => x.Add(It.IsAny<Transaction>()), Times.Exactly(60));
-            Assert.AreEqual(true, isSuccessful);
+            Assert.IsTrue(isSuccessful);
         }
 
         [TestMethod]
@@ -79,7 +79,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Transactions
             // assert
             _mockDbSetTransaction.Verify(x => x.Add(It.Is<Transaction>(y => y.Amount == 100)), Times.Exactly(30));
             _mockDbSetTransaction.Verify(x => x.Add(It.Is<Transaction>(y => y.Amount == -100)), Times.Exactly(30));
-            Assert.AreEqual(true, isSuccessful);
+            Assert.IsTrue(isSuccessful);
         }
 
         [TestMethod]
@@ -96,7 +96,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Transactions
 
             // assert
             _mockDbSetTransaction.Verify(x => x.Add(It.IsAny<Transaction>()), Times.Exactly(62));
-            Assert.AreEqual(true, isSuccessful);
+            Assert.IsTrue(isSuccessful);
         }
 
         [TestMethod]
@@ -114,7 +114,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Transactions
             // assert
             _mockDbSetTransaction.Verify(x => x.Add(It.Is<Transaction>(y => y.Amount == 100 && y.Description == "Monthly Incomes")), Times.Exactly(31));
             _mockDbSetTransaction.Verify(x => x.Add(It.Is<Transaction>(y => y.Amount == -100 && y.Description == "Monthly Expenses")), Times.Exactly(31));
-            Assert.AreEqual(true, isSuccessful);
+            Assert.IsTrue(isSuccessful);
         }
 
         [TestMethod]
@@ -125,7 +125,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Transactions
 
             // assert
             _mockDbSetTransaction.Verify(x => x.Add(It.IsAny<Transaction>()), Times.Exactly(56));
-            Assert.AreEqual(true, isSuccessful);
+            Assert.IsTrue(isSuccessful);
         }
 
         [TestMethod]
@@ -137,7 +137,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Transactions
             // assert
             _mockDbSetTransaction.Verify(x => x.Add(It.Is<Transaction>(y => y.Amount == 100 && y.Description == "Monthly Incomes")), Times.Exactly(28));
             _mockDbSetTransaction.Verify(x => x.Add(It.Is<Transaction>(y => y.Amount == -100 && y.Description == "Monthly Expenses")), Times.Exactly(28));
-            Assert.AreEqual(true, isSuccessful);
+            Assert.IsTrue(isSuccessful);
         }
 
         [TestMethod]
@@ -148,7 +148,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Transactions
 
             // assert
             _mockDbSetTransaction.Verify(x => x.Add(It.IsAny<Transaction>()), Times.Exactly(58));
-            Assert.AreEqual(true, isSuccessful);
+            Assert.IsTrue(isSuccessful);
         }
 
         [TestMethod]
@@ -160,7 +160,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Transactions
             // assert
             _mockDbSetTransaction.Verify(x => x.Add(It.Is<Transaction>(y => y.Amount == 100 && y.Description == "Monthly Incomes")), Times.Exactly(29));
             _mockDbSetTransaction.Verify(x => x.Add(It.Is<Transaction>(y => y.Amount == -100 && y.Description == "Monthly Expenses")), Times.Exactly(29));
-            Assert.AreEqual(true, isSuccessful);
+            Assert.IsTrue(isSuccessful);
         }
     }
 }
