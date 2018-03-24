@@ -1,4 +1,5 @@
-﻿using CivMoney.AccessAndBusinessLayer.Tests.TestHelpers;
+﻿using CivMoney.AccessAndBusinessLayer.Contracts;
+using CivMoney.AccessAndBusinessLayer.Tests.TestHelpers;
 using CivMoney.AccessAndBusinessLayer.Transactions;
 using CivMoney.DataBaseLayer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
@@ -14,7 +15,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Transactions
         private Mock<DbSet<Transaction>> _mockDbSetTransaction;
         private Mock<DbSet<User>> _mockDbSetUser;
         private Mock<CivMoneyContext> _mockcivMoneyContext;
-        private CreateTransactions _createTransactionsService;
+        private ICreateTransactionsService _createTransactionsService;
 
         [TestInitialize]
         public void Setup()

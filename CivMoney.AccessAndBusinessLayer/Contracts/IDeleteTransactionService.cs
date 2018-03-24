@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace CivMoney.AccessAndBusinessLayer.Contracts
 {
-    public interface IUserAccessService
+    public interface IDeleteTransactionService
     {
-        int AddUser(string userName, string password, string currency);
-        string GetUserName(int userId);
+        bool DeleteTransactionForUser(int transactionId, int userId);
     }
 }

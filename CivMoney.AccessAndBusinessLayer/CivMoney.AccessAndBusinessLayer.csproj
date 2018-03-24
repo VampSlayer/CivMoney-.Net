@@ -51,14 +51,21 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Authentication.cs" />
-    <Compile Include="Contracts\IUserAccessService.cs" />
+    <Compile Include="Contracts\ICreateTransactionsService.cs" />
+    <Compile Include="Contracts\ICreateUsersService.cs" />
+    <Compile Include="Contracts\IDeleteTransactionService.cs" />
+    <Compile Include="Contracts\IReadTransactionService.cs" />
+    <Compile Include="Contracts\IReadUsersService.cs" />
+    <Compile Include="Contracts\IUpdateUsersService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Transactions\CreateTransactions.cs" />
     <Compile Include="Transactions\DeleteTransactions.cs" />
-    <Compile Include="Transactions\GetTransactions.cs" />
+    <Compile Include="Transactions\ReadTransactions.cs" />
     <Compile Include="Contracts\ITransactionsTotalsService.cs" />
     <Compile Include="Transactions\TransactionTotals.cs" />
-    <Compile Include="UsersAccess.cs" />
+    <Compile Include="Users\CreateUsers.cs" />
+    <Compile Include="Users\ReadUsers.cs" />
+    <Compile Include="Users\UpdateUsers.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CivMoney.DataBaseLayer\CivMoney.DataBaseLayer.csproj">

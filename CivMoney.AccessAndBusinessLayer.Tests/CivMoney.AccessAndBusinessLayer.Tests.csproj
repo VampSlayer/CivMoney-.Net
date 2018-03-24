@@ -76,10 +76,12 @@
   <ItemGroup>
     <Compile Include="TestHelpers\DataBaseMockingHelpers.cs" />
     <Compile Include="Transactions\CreateTransactionsTests.cs" />
-    <Compile Include="Transactions\GetTransactionsTests.cs" />
+    <Compile Include="Transactions\ReadTransactionsTests.cs" />
     <Compile Include="Transactions\TransactionTotalsTests.cs" />
-    <Compile Include="UsersAccessTests.cs" />
+    <Compile Include="Users\CreateUsersTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Users\ReadUsersTests.cs" />
+    <Compile Include="Users\UpdateUsersTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

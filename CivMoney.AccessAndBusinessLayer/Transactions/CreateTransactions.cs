@@ -1,10 +1,11 @@
-﻿using CivMoney.DataBaseLayer;
+﻿using CivMoney.AccessAndBusinessLayer.Contracts;
+using CivMoney.DataBaseLayer;
 using CivMoney.DataBaseLayer.Contracts;
 using System;
 
 namespace CivMoney.AccessAndBusinessLayer.Transactions
 {
-    public class CreateTransactions
+    public class CreateTransactions : ICreateTransactionsService
     {
         private CivMoneyContext _civMoneyContext;
 

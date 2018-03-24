@@ -1,4 +1,5 @@
-﻿using CivMoney.DataBaseLayer;
+﻿using CivMoney.AccessAndBusinessLayer.Contracts;
+using CivMoney.DataBaseLayer;
 using CivMoney.DataBaseLayer.Contracts;
 using System;
 using System.Collections.Generic;
@@ -6,11 +7,11 @@ using System.Linq;
 
 namespace CivMoney.AccessAndBusinessLayer.Transactions
 {
-    public class GetTransactions
+    public class ReadTransactions : IReadTransactionService
     {
         private CivMoneyContext _civMoneyContext;
 
-        public GetTransactions(ICivMoneyContextFactory civMoneyContextFactory)
+        public ReadTransactions(ICivMoneyContextFactory civMoneyContextFactory)
         {
             _civMoneyContext = civMoneyContextFactory.GetContext();
         }

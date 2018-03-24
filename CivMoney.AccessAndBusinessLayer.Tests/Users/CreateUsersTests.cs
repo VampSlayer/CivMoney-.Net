@@ -1,19 +1,20 @@
-﻿using System;
-using System.Data.Entity;
+﻿using System.Data.Entity;
+using CivMoney.AccessAndBusinessLayer.Contracts;
 using CivMoney.AccessAndBusinessLayer.Tests.TestHelpers;
+using CivMoney.AccessAndBusinessLayer.Users;
 using CivMoney.DataBaseLayer;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 
-namespace CivMoney.AccessAndBusinessLayer.Tests
+namespace CivMoney.AccessAndBusinessLayer.Tests.Users
 {
     [TestClass]
-    public class UsersAccessTests
+    public class CreateUsersTests
     {
         private Mock<DbSet<Transaction>> _mockDbSetTransaction;
         private Mock<DbSet<User>> _mockDbSetUser;
         private Mock<CivMoneyContext> _mockcivMoneyContext;
-        private UsersAccess _usersAccessService;
+        private ICreateUsersService _usersAccessService;
 
         [TestInitialize]
         public void Setup()
@@ -23,7 +24,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests
             _mockDbSetTransaction = DataBaseMockingHelpers.GetMockDbSetTransaction();
             _mockcivMoneyContext = DataBaseMockingHelpers.GetMockCivMoneyContext(_mockDbSetTransaction, _mockDbSetUser);
             _usersAccessService =
-                new UsersAccess(DataBaseMockingHelpers.GetMockCivMoneyContextFactoryObject(_mockcivMoneyContext.Object));
+                new CreateUsers(DataBaseMockingHelpers.GetMockCivMoneyContextFactoryObject(_mockcivMoneyContext.Object));
         }
 
         [TestMethod]
@@ -55,48 +56,6 @@ namespace CivMoney.AccessAndBusinessLayer.Tests
 
             _mockDbSetUser.Verify(x => x.Add(It.Is<User>(user => user.UserName == "User1")), Times.Never);
             Assert.AreEqual(-1, userId);
-        }
-
-        [TestMethod]
-        public void GetUserIdFromUserName_ShouldGetUserIdFromSeededUserInMockedDbSet_ReturnsZero()
-        {
-            // act
-            var Id = _usersAccessService.GetUserIdFromUserName("User1");
-
-            // assert
-            Assert.AreEqual(0, Id);
-        }
-
-        [TestMethod]
-        public void GetUserCurrency_ShouldGetUserCurrencyFromSeededUserInMockedDbSet_ReturnsCHF()
-        {
-            // act
-            var returnedUserCurrency = _usersAccessService.GetUserCurrency(0);
-
-            // assert
-            Assert.AreEqual(returnedUserCurrency, "CHF");
-        }
-
-        [TestMethod]
-        public void UpdateUserCurrency_ShouldCallSaveChangesOnMockCivMoneyContext_TimesOnceAndReturnTrue()
-        {
-            // act
-            var isSuccesful = _usersAccessService.UpdateUserCurrency(0, "GBP");
-
-            // assert
-            _mockcivMoneyContext.Verify(m => m.SaveChanges(), Times.Once());
-            Assert.IsTrue(isSuccesful);
-        }
-
-        [TestMethod] 
-        public void UpdateUserCurrency_ShouldUpdateSeededUserCurrencyFromCHF_ToGBPAndReturnTrue()
-        {
-            // act
-            var isSuccesful = _usersAccessService.UpdateUserCurrency(0, "GBP");
-
-            // assert
-            Assert.IsTrue(_mockDbSetUser.Object.FirstAsync().Result.Currency == "GBP");
-            Assert.IsTrue(isSuccesful);
         }
     }
 }
