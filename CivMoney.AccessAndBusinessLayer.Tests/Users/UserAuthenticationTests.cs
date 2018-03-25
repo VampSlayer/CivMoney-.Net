@@ -36,6 +36,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Users
         [TestMethod]
         public void DoesUserExist_FindsIfUserNameIsStoredWithinMockUsersDbSet_ReturnsTrueForUser1()
         {
+            // act
             var doesUserExist = _userAuthenticationService.DoesUserExist("User1");
 
             Assert.IsTrue(doesUserExist);
@@ -44,6 +45,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Users
         [TestMethod]
         public void DoesUserExist_FindsIfUserNameIsStoredWithinMockUsersDbSet_ReturnsFlaseForUser0()
         {
+            // act
             var doesUserExist = _userAuthenticationService.DoesUserExist("User0");
 
             Assert.IsFalse(doesUserExist);
@@ -52,6 +54,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Users
         [TestMethod]
         public void VerifyUserLoginDetails_VerifiesUserIsValidUserByCheckingUserNameAndPasswordHashStoredInDataBase_ReturnsTrueWhenUserNameAndPasswordIsCorrect()
         {
+            // act
             var isUserLoginDetailsValid = _userAuthenticationService.VerifyUserLoginDetails("User1", "password");
 
             Assert.IsTrue(isUserLoginDetailsValid);
@@ -60,6 +63,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Users
         [TestMethod]
         public void VerifyUserLoginDetails_VerifiesUserIsNotValidUserByCheckingUserNameAndPasswordHashStoredInDataBase_ReturnsFlaseWhenUserNameAndPasswordIsNotCorrect()
         {
+            // act
             var isUserLoginDetailsValid = _userAuthenticationService.VerifyUserLoginDetails("User0", "notCorrectPassword");
 
             Assert.IsFalse(isUserLoginDetailsValid);
@@ -68,6 +72,7 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Users
         [TestMethod]
         public void VerifyUserLoginDetails_VerifiesUserIsNotValidUserByCheckingUserNameAndPasswordHashStoredInDataBase_ReturnsFlaseWhenUserNameIsCorrectButPasswordIsNot()
         {
+            // act
             var isUserLoginDetailsValid = _userAuthenticationService.VerifyUserLoginDetails("User1", "notCorrectPassword");
 
             Assert.IsFalse(isUserLoginDetailsValid);
