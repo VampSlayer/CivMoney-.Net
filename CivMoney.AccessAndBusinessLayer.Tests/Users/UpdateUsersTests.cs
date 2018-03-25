@@ -53,5 +53,16 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Users
             Assert.IsTrue(_mockDbSetUser.Object.FirstAsync().Result.Currency == "GBP");
             Assert.IsTrue(isSuccesful);
         }
+
+        [TestMethod]
+        public void UpdateUserCurrency_ShouldNotUpdateSeededUserCurrencyFromCHFAsUserIdIsNotInTable_ReturnFalse()
+        {
+            // act
+            var isSuccesful = _updateUsersService.UpdateUserCurrency(999, "GBP");
+
+            // assert
+            Assert.IsTrue(_mockDbSetUser.Object.FirstAsync().Result.Currency == "CHF");
+            Assert.IsFalse(isSuccesful);
+        }
     }
 }

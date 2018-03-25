@@ -28,13 +28,23 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.Users
         }
 
         [TestMethod]
+        public void GetUserName_ShouldReturnUserNameFromSeededUserInMockedDbSetWhenGiveId0_ReturnsUser1()
+        {
+            // act
+            var userName = _readUsersService.GetUserName(0);
+
+            // assert
+            Assert.AreEqual("User1", userName);
+        }
+
+        [TestMethod]
         public void GetUserIdFromUserName_ShouldGetUserIdFromSeededUserInMockedDbSet_ReturnsZero()
         {
             // act
-            var Id = _readUsersService.GetUserIdFromUserName("User1");
+            var id = _readUsersService.GetUserIdFromUserName("User1");
 
             // assert
-            Assert.AreEqual(0, Id);
+            Assert.AreEqual(0, id);
         }
 
         [TestMethod]

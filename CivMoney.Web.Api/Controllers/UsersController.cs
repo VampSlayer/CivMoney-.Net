@@ -17,14 +17,14 @@ namespace CivMoney.Web.Api.Controllers
             createUserService = new CreateUsers(civMoneyContextFactory);
         }
 
-        // GET user/RegisterUser?userName=sayam1&password=password&currency=CHF
-        [HttpGet]
+        // POST user/RegisterUser?userName={username}1&password={password}&currency={currency}
+        [HttpPost]
         [Route("RegisterUser")]
-        public string RegisterUser([FromUri]string userName, [FromUri]string password, [FromUri]string currency)
+        public int RegisterUser([FromUri]string userName, [FromUri]string password, [FromUri]string currency)
         {
             var newUserId = createUserService.AddUser(userName, password, currency);
 
-            return "New user id is : " + newUserId;
+            return newUserId;
         }
     }
 }

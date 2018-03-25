@@ -26,9 +26,9 @@ namespace CivMoney.AccessAndBusinessLayer.Tests.TestHelpers
             var seededTransactions = new List<Transaction>()
             {
                 new Transaction { Id = 0, Amount = 1.0m, Description = "First Income", Date = new DateTime(2000, 1, 1), UserId = 0 },
-                new Transaction { Id = 0, Amount = -1.0m, Description = "First Expense", Date = new DateTime(2000, 1, 1), UserId = 0 },
-                new Transaction { Id = 0, Amount = 1.0m, Description = "Second Income", Date = new DateTime(2000, 12, 1), UserId = 0 },
-                new Transaction { Id = 0, Amount = -1.0m, Description = "Second Expense", Date = new DateTime(2000, 12, 1), UserId = 0 }
+                new Transaction { Id = 1, Amount = -1.0m, Description = "First Expense", Date = new DateTime(2000, 1, 1), UserId = 0 },
+                new Transaction { Id = 2, Amount = 1.0m, Description = "Second Income", Date = new DateTime(2000, 12, 1), UserId = 0 },
+                new Transaction { Id = 3, Amount = -1.0m, Description = "Second Expense", Date = new DateTime(2000, 12, 1), UserId = 0 }
             };
 
             var transactionsMockSet = new Mock<DbSet<Transaction>>().SetupData(seededTransactions);

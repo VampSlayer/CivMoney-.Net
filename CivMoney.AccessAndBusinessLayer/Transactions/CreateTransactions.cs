@@ -39,22 +39,15 @@ namespace CivMoney.AccessAndBusinessLayer.Transactions
             decimal totalExpenes,
             int userId)
         {
-            try
-            {
-                var numberOfDaysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
+            var numberOfDaysInMonth = DateTime.DaysInMonth(date.Year, date.Month);
 
-                for (int i = 1; i < numberOfDaysInMonth + 1; i++)
-                {
-                    AddSingleTransaction(totalIncomes / numberOfDaysInMonth, "Monthly Incomes", new DateTime(date.Year, date.Month, i), userId);
-                    AddSingleTransaction(-totalExpenes / numberOfDaysInMonth, "Monthly Expenses", new DateTime(date.Year, date.Month, i), userId);
-                }
-
-                return true;
-            }
-            catch (Exception)
+            for (int i = 1; i < numberOfDaysInMonth + 1; i++)
             {
-                return false;
+                AddSingleTransaction(totalIncomes / numberOfDaysInMonth, "Monthly Incomes", new DateTime(date.Year, date.Month, i), userId);
+                AddSingleTransaction(-totalExpenes / numberOfDaysInMonth, "Monthly Expenses", new DateTime(date.Year, date.Month, i), userId);
             }
+
+            return true;
         }
     }
 }

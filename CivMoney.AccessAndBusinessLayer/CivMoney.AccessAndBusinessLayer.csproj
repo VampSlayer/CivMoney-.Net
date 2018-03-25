@@ -50,7 +50,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Authentication.cs" />
+    <Compile Include="Contracts\IUserAuthenticationService.cs" />
+    <Compile Include="Users\UserAuthentication.cs" />
     <Compile Include="Contracts\ICreateTransactionsService.cs" />
     <Compile Include="Contracts\ICreateUsersService.cs" />
     <Compile Include="Contracts\IDeleteTransactionService.cs" />
